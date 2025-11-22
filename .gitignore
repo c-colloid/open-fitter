@@ -1,0 +1,37 @@
+# すべてを無視する（デフォルト）
+/*
+
+# ルート直下のpyファイルは追跡対象
+!/*.py
+
+# testsディレクトリ内は追跡対象
+!/tests/
+!/tests/**
+
+# UnityProjectディレクトリは基本無視だが、一部追跡
+!/UnityProject/
+/UnityProject/*
+
+# UnityProject/Assetsは基本無視だが、一部追跡
+!/UnityProject/Assets/
+/UnityProject/Assets/*
+
+# UnityProject/Assets/OpenFitterは基本無視だが、一部追跡
+!/UnityProject/Assets/OpenFitter/
+/UnityProject/Assets/OpenFitter/*
+
+# UnityProject/Assets/OpenFitter/Scriptsは追跡対象
+!/UnityProject/Assets/OpenFitter/Scripts/
+!/UnityProject/Assets/OpenFitter/Scripts/**/*.cs
+
+# .gitignore自体は追跡対象
+!.gitignore
+
+# README等のドキュメントがあれば追跡対象にする場合
+!/LICENSE
+!/README.md
+#! Allow tracking of GPL core directory
+!/gpl-core/
+!/gpl-core/**
+
+Original.py
