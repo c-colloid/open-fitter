@@ -20,9 +20,10 @@
 !/UnityProject/Assets/OpenFitter/
 /UnityProject/Assets/OpenFitter/*
 
-# UnityProject/Assets/OpenFitter/Scriptsは追跡対象
-!/UnityProject/Assets/OpenFitter/Scripts/
-!/UnityProject/Assets/OpenFitter/Scripts/**/*.cs
+# Editor・Runtimeは追跡対象
+!/Editor/
+!/Runtime/
+!/**/*.cs
 
 # .gitignore自体は追跡対象
 !.gitignore
@@ -31,11 +32,11 @@
 !/LICENSE
 !/README.md
 #! Allow tracking of GPL core directory
-!/gpl-core/
-!/gpl-core/**
+!/gpl-core~/
+!/gpl-core~/**
 
 # Allow tracking of blender_addon directory
-!/blender_addon/
-!/blender_addon/**
+!/blender_addon~/
+!/blender_addon~/**
 
 Original.py
