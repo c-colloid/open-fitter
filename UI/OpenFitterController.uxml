@@ -1,0 +1,18 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="True">
+    <Style src="project://database/Assets/OpenFitter/USS/OpenFitterController.uss?fileID=7433441132597879392&amp;guid=e9b49be5c1bbc9244bca195684889e8e&amp;type=3#OpenFitterController" />
+    <ui:VisualElement name="Components" style="margin-top: 10px; margin-right: 10px; margin-bottom: 10px; margin-left: 10px; flex-grow: 1;">
+        <ui:Label tabindex="-1" text="Components" parse-escape-sequences="true" display-tooltip-when-elided="true" style="-unity-font-style: bold;" />
+        <uie:ObjectField label="Rbf Deformer" type="RBFDeformer, Assembly-CSharp" name="RbfDeformer" binding-path="rbfDeformer" style="flex-shrink: 1; flex-wrap: wrap;" />
+        <uie:ObjectField label="Bone Deformer" type="BoneDeformer, Assembly-CSharp" name="BoneDeformer" binding-path="boneDeformer" style="flex-shrink: 1; flex-wrap: wrap;" />
+        <uie:ObjectField label="Bind Pose Corrector" type="BindPoseCorrector, Assembly-CSharp" name="BindPoseCorrector" binding-path="bindPoseCorrector" style="flex-shrink: 1; flex-wrap: wrap;" />
+    </ui:VisualElement>
+    <ui:VisualElement name="Settings" style="margin-top: 10px; margin-right: 10px; margin-bottom: 10px; margin-left: 10px; flex-grow: 1;">
+        <ui:Label tabindex="-1" text="Settings" parse-escape-sequences="true" display-tooltip-when-elided="true" />
+        <ui:Toggle label="Auto Find Components" binding-path="autoFindComponents" style="flex-shrink: 1; flex-wrap: wrap;" />
+    </ui:VisualElement>
+    <ui:VisualElement name="PipelineExecution" style="margin-top: 10px; margin-right: 10px; margin-bottom: 10px; margin-left: 10px; flex-grow: 1;">
+        <ui:Label tabindex="-1" text="Pipeline Execution" parse-escape-sequences="true" display-tooltip-when-elided="true" />
+        <ui:Button text="Run Full Fitting Pipeline" parse-escape-sequences="true" display-tooltip-when-elided="true" name="RunFullFittingPipeline" style="flex-grow: 3; flex-shrink: 1; min-height: 40px; margin-bottom: 10px;" />
+        <ui:Button text="Reset Bone Pose" parse-escape-sequences="true" display-tooltip-when-elided="true" name="ResetBonePose" style="flex-grow: 1; flex-shrink: 3;" />
+    </ui:VisualElement>
+</ui:UXML>

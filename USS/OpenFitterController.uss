@@ -1,0 +1,15 @@
+#RunFullFittingPipeline {
+    background-color: rgb(62, 88, 62);
+}
+
+#RunFullFittingPipeline:hover {
+    background-color: rgb(77, 102, 77);
+}
+
+#RunFullFittingPipeline:active {
+    background-color: var(--unity-colors-button-background-hover_pressed);
+}
+
+.unity-base-field__label {
+    min-width: 150px;
+}
