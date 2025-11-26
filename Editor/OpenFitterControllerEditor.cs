@@ -1,4 +1,4 @@
-// ----------------------------------------------------------------------------
+﻿// ----------------------------------------------------------------------------
 // Copyright (C) [2025] tallcat
 //
 // This file is free software: you can redistribute it and/or modify
@@ -14,10 +14,44 @@
 
 using UnityEngine;
 using UnityEditor;
+using UnityEditor.UIElements;
+using UnityEngine.UIElements;
 
 [CustomEditor(typeof(OpenFitterController))]
 public class OpenFitterControllerEditor : Editor
 {
+	[SerializeField] VisualTreeAsset UI;
+	OpenFitterController controller;
+	
+	// This function is called when the object is loaded.
+	internal void OnEnable() {
+		if (controller != null) return;
+		controller = (OpenFitterController)target;
+	}
+	
+	public override VisualElement CreateInspectorGUI() {
+		var root = new VisualElement();
+		UI.CloneTree(root);
+		
+		root.Q<Button>("RunFullFittingPipeline").clicked += OnClickRunFullFittingPipelineButton;
+		root.Q<Button>("ResetBonePose").clicked += OnClickResetBonePoseButton;
+		
+		return root;
+	}
+	
+	void OnClickRunFullFittingPipelineButton()
+	{
+		Undo.RecordObjects(controller.GetComponentsInChildren<Transform>(true), "Run OpenFitter Pipeline");
+		controller.RunFullFittingPipeline();
+		SceneView.RepaintAll();
+	}
+	
+	void OnClickResetBonePoseButton()
+	{
+		controller.ResetAll();
+		SceneView.RepaintAll();
+	}
+	
     public override void OnInspectorGUI()
     {
         DrawDefaultInspector();
@@ -30,17 +64,14 @@ public class OpenFitterControllerEditor : Editor
         GUI.backgroundColor = new Color(0.7f, 1.0f, 0.7f);
         if (GUILayout.Button("Run Full Fitting Pipeline", GUILayout.Height(40)))
         {
-            Undo.RecordObjects(controller.GetComponentsInChildren<Transform>(true), "Run OpenFitter Pipeline");
-            controller.RunFullFittingPipeline();
-            SceneView.RepaintAll();
+	        OnClickRunFullFittingPipelineButton();
         }
         GUI.backgroundColor = Color.white;
 
         GUILayout.Space(10);
         if (GUILayout.Button("Reset Bone Pose"))
         {
-            controller.ResetAll();
-            SceneView.RepaintAll();
+	        OnClickResetBonePoseButton();
         }
     }
 }
