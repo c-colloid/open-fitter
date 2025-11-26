@@ -23,6 +23,8 @@
 # Editor・Runtimeは追跡対象
 !/Editor/
 !/Runtime/
+!/UI/
+!/USS/
 !/**/*.cs
 
 # .gitignore自体は追跡対象
